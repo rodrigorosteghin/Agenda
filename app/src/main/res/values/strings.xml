@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Agenda</string>
+    <string name="buscar_personal">Buscar Personal</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="email">Email</string>
+    <string name="telefono">Telefono</string>
+    <string name="edad">Edad</string>
+    <string name="guardar">Guardar</string>
+
+</resources>
