@@ -7,5 +7,6 @@
     <string name="telefono">Telefono</string>
     <string name="edad">Edad</string>
     <string name="guardar">Guardar</string>
+    <string name="borrar">Borrar</string>
 
 </resources>

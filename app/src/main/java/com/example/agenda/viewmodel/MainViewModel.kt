@@ -16,11 +16,11 @@ class MainViewModel:ViewModel() {
     fun iniciar(){
         viewModelScope.launch {
             personalList.value = withContext(Dispatchers.IO){
-                db.personalDao().insert(arrayListOf<Personal>(
+                db.personalDao().insert(
                     Personal(null,"Rodrigo", "Rosteghin",
                         "rodrigorosteghin@gmail.com",
                         "1168624426", 27)
-                ))
+                )
 
                 db.personalDao().getAll()
             }

@@ -1,12 +1,15 @@
 package com.example.agenda.adaptadores
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.agenda.R
+import com.example.agenda.config.Constantes
 import com.example.agenda.databinding.ItemListBinding
 import com.example.agenda.tablas.Personal
+import com.example.agenda.ui.FormularioActivity
 
 
 class PersonalAdapter(private val dataSet: List<Personal>?) :
@@ -45,7 +48,12 @@ class PersonalAdapter(private val dataSet: List<Personal>?) :
             binding.tvTelefono.text = p.telefono
             binding.tvEdad.text = p.edad.toString()
 
-            //TODO evento on click
+            binding.root.setOnClickListener{
+                val intent = Intent(contexto,FormularioActivity::class.java)
+                intent.putExtra(Constantes.OPERACION_KEY, Constantes.OPERACION_EDITAR)
+                intent.putExtra(Constantes.ID_PERSONAL_KEY, p.idEmpleado)
+                contexto.startActivity(intent)
+            }
         }
 
     }

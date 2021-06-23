@@ -22,7 +22,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@={formularioViewModel.nombre}"/>
 
         <EditText
             android:id="@+id/etApellidos"
@@ -32,7 +33,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etNombre"
-            android:layout_marginTop="4dp" />
+            android:layout_marginTop="4dp"
+            android:text="@={formularioViewModel.apellido}"/>
 
         <EditText
             android:id="@+id/etEmail"
@@ -42,7 +44,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etApellidos"
-            android:layout_marginTop="4dp" />
+            android:layout_marginTop="4dp"
+            android:text="@={formularioViewModel.email}"/>
 
         <EditText
             android:id="@+id/etTelefono"
@@ -52,7 +55,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etEmail"
-            android:layout_marginTop="4dp" />
+            android:layout_marginTop="4dp"
+            android:text="@={formularioViewModel.telefono}"/>
 
         <EditText
             android:id="@+id/etEdad"
@@ -62,7 +66,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etTelefono"
-            android:layout_marginTop="4dp" />
+            android:layout_marginTop="4dp"
+            android:text="@={``+formularioViewModel.edad}"/>
 
         <Button
             android:id="@+id/btnGuardar"
@@ -72,7 +77,36 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etEdad"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:onClick="@{()->formularioViewModel.guardarUsuario()}"/>
+
+        <LinearLayout
+            android:id="@+id/linearEditar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etEdad"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btnEditar"
+                android:text="@string/guardar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->formularioViewModel.guardarUsuario()}"
+                android:layout_marginRight="4dp"/>
+
+            <Button
+                android:id="@+id/btnBorrar"
+                android:text="@string/borrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
