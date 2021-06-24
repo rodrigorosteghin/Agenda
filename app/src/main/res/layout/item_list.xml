@@ -50,23 +50,23 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:drawableStart="@drawable/ic_phone"
-                        android:textColor="#000000" />
+                        style="@style/item_list_style" />
 
                     <TextView
                         android:id="@+id/tvEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:textColor="#000000"
-                        android:drawableLeft="@drawable/ic_mail" />
+                        android:drawableLeft="@drawable/ic_mail"
+                        style="@style/item_list_style"/>
 
                     <TextView
                         android:id="@+id/tvEdad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:textColor="#000000"
-                        android:drawableLeft="@drawable/ic_person" />
+                        android:drawableLeft="@drawable/ic_person"
+                        style="@style/item_list_style"/>
 
                 </LinearLayout>
             </LinearLayout>

@@ -12,8 +12,9 @@ import com.example.agenda.tablas.Personal
 import com.example.agenda.ui.FormularioActivity
 
 
-class PersonalAdapter(private val dataSet: List<Personal>?) :
+class PersonalAdapter() :
     RecyclerView.Adapter<PersonalAdapter.ViewHolder>() {
+    private var dataSet: List<Personal>? = listOf<Personal>()
 
     /**
      * Provide a reference to the type of views that you are using
@@ -56,6 +57,11 @@ class PersonalAdapter(private val dataSet: List<Personal>?) :
             }
         }
 
+    }
+
+    fun setPersonal(personal:List<Personal>){
+        dataSet = personal
+        this.notifyDataSetChanged()
     }
 
 }

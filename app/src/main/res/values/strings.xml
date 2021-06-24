@@ -8,5 +8,8 @@
     <string name="edad">Edad</string>
     <string name="guardar">Guardar</string>
     <string name="borrar">Borrar</string>
+    <string name="borar_personal">¿Borrar Personal?</string>
+    <string name="yes">Si, borrar</string>
+    <string name="cancel">Cancelar</string>
 
 </resources>

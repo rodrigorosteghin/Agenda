@@ -16,13 +16,28 @@ class MainViewModel:ViewModel() {
     fun iniciar(){
         viewModelScope.launch {
             personalList.value = withContext(Dispatchers.IO){
-                db.personalDao().insert(
-                    Personal(null,"Rodrigo", "Rosteghin",
-                        "rodrigorosteghin@gmail.com",
-                        "1168624426", 27)
-                )
+
 
                 db.personalDao().getAll()
+            }
+
+        }
+    }
+
+    fun buscarPersonal(buscarPersonal:String) {
+        viewModelScope.launch {
+            personalList.value = withContext(Dispatchers.IO){
+
+                db.personalDao().getByName(buscarPersonal)
+            }
+
+        }
+    }
+    fun buscarPersonal2() {
+        viewModelScope.launch {
+            personalList.value = withContext(Dispatchers.IO){
+
+                db.personalDao().getAll().filter { it.nombre.contains(parametroBusqueda.value!!) || it.apellido.contains(parametroBusqueda.value!!) }
             }
 
         }

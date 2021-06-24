@@ -45,7 +45,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etApellidos"
             android:layout_marginTop="4dp"
-            android:text="@={formularioViewModel.email}"/>
+            android:text="@={formularioViewModel.email}"
+            android:inputType="textEmailAddress"/>
 
         <EditText
             android:id="@+id/etTelefono"
@@ -56,7 +57,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etEmail"
             android:layout_marginTop="4dp"
-            android:text="@={formularioViewModel.telefono}"/>
+            android:text="@={formularioViewModel.telefono}"
+            android:inputType="phone"/>
 
         <EditText
             android:id="@+id/etEdad"
@@ -67,7 +69,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etTelefono"
             android:layout_marginTop="4dp"
-            android:text="@={``+formularioViewModel.edad}"/>
+            android:text="@={``+formularioViewModel.edad}"
+            android:inputType="number"/>
 
         <Button
             android:id="@+id/btnGuardar"

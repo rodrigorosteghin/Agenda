@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Personal (
     @PrimaryKey(autoGenerate = true)
-    val idEmpleado:Long?,
+    var idEmpleado:Long?,
     var nombre:String,
     var apellido:String,
     var email:String,

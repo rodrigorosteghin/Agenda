@@ -26,28 +26,42 @@ class FormularioViewModel:ViewModel() {
     }
 
     fun guardarUsuario() {
-        var mPersonal = Personal(null, nombre.value!!, apellido.value!!, email.value!!, telefono.value!!, edad.value!!)
-        when(operacion){
-            Constantes.OPERACION_INSERTAR -> {
-                viewModelScope.launch {
-                    val result = withContext(Dispatchers.IO){
-                        db.personalDao().insert(
+        if (validarInformacion()){
+            var mPersonal = Personal(null, nombre.value!!, apellido.value!!, email.value!!, telefono.value!!, edad.value!!)
+            when(operacion){
+                Constantes.OPERACION_INSERTAR -> {
+                    viewModelScope.launch {
+                        val result = withContext(Dispatchers.IO){
+                            db.personalDao().insert(
 
                                 mPersonal
 
-                        )
+                            )
 
+                        }
+
+                        operacionExitosa.value = (result != 0L)
                     }
 
-                    operacionExitosa.value = (result != 0L)
+                }
+                Constantes.OPERACION_EDITAR -> {
+
+                    mPersonal.idEmpleado = id.value!!
+                    viewModelScope.launch {
+                        val result = withContext(Dispatchers.IO){
+                            db.personalDao().update(mPersonal)
+                        }
+
+                        operacionExitosa.value = (result>0)
+                    }
+
                 }
 
             }
-            Constantes.OPERACION_EDITAR -> {
-
-            }
-
+        }else{
+            operacionExitosa.value = false
         }
+
     }
 
     fun cargarDatos() {
@@ -62,6 +76,28 @@ class FormularioViewModel:ViewModel() {
             email.value = persona.email
             edad.value = persona.edad
         }
+    }
+
+    private fun validarInformacion():Boolean{
+        //devuelve true si la informacion no es nula ni vacia.
+        return !(nombre.value.isNullOrEmpty() ||
+                 apellido.value.isNullOrEmpty() ||
+                 email.value.isNullOrEmpty() ||
+                 telefono.value.isNullOrEmpty() ||
+                 edad.value!! <= 0 || edad.value!! >= 100
+                )
+    }
+
+    fun eliminarPersonal() {
+        var mPersonal = Personal(id.value!!,"","","","",0)
+        viewModelScope.launch {
+            var result = withContext(Dispatchers.IO){
+                db.personalDao().delete(mPersonal)
+            }
+
+            operacionExitosa.value = (result>0)
+        }
+
     }
 
 }

@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="modelo"
+            type="com.example.agenda.viewmodel.MainViewModel" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -20,7 +22,8 @@
             android:layout_weight="1"
             android:hint="@string/buscar_personal"
             android:singleLine="true"
-            android:imeOptions="actionSearch" />
+            android:imeOptions="actionSearch"
+            android:text="@={modelo.parametroBusqueda}"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/miRecycler"
